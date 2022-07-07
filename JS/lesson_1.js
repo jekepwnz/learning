@@ -36,20 +36,23 @@ let compare = apples <= cherry
 
 let age_2 = 18
 let age_3 = 60
+const div = document.getElementById("d")
+const checkAge = function(...age) {
+    age.forEach(el => {
+        if(el && !isNaN(el)){
+            if (el < age_2){
+              div.innerHTML += "You don't have access cause your age is " + el + '<br />'
+            } else if(el >= age_2 && el <= age_3){
+                div.innerHTML += "Welcome!" + '<br />'
+            } else if(el > age_3){
+                div.innerHTML += "Ceep calm and watch Culture channel" + '<br />'
+            }else{
+                div.innerHTML += "Technical work." + '<br />'
+            }
+        }else{
+            div.innerHTML += "Wrong input" + '<br />'
+        }
+    })
 
-const checkAge = function(age) {
-if(age && !isNaN(age)){
-    if (age < age_2){
-      alert("You don't have access cause your age is " + age)
-    } else if(age >= age_2 && age <= age_3){
-        alert("Welcome!")
-    } else if(age > age_3){
-        alert("Ceep calm and watch Culture channel")
-    }else{
-        alert("Technical work.")
-    }
-}else{
-    alert("Wrong input")
 }
-}
-checkAge(prompt("Enter your age"))
+checkAge(16,18,45,60,65)
